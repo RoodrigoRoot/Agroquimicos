@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block css%} 
+<link rel="stylesheet" href="{% static 'css/login/login.css' %}">
+{% endblock %}
+{% block title %} Login {% endblock%}
+{% block content %}
+    <div class="container_login ">
+        <img src="{% static 'img/login/login-a.jpg' %}" class="back_login" alt="Responsive image"/>
+        <div class="container">
+            <img id="logo" src="{% static 'img/login/logo.png'%}" />
+            <form class="form_login w-50">
+                {{forms|crispy}}
+                <input type="submit" class="btn btn-success w-100 btn-lg" value="Entrar"/>
+            </form>
+        </div>
+    </div>
+{% endblock %}
