@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css%} 
+<link rel="stylesheet" href="{% static 'css/product/product.css'%}"/>
+{% endblock %}  
+{% block title%}Productos{% endblock %}
+{% block content %} 
+
+<div class="search">
+    <img id="search_img" src="{% static 'img/products/search.jpg'%}" alt="Busqueda de productos"/>
+    <form class="search_product" action="{% url 'product:searchproduct'%}" method="GET">
+        <input name="q" type="search" size="180" class="form-control w-50" placeholder="Busqueda de productos">
+        <button type="submit" class="ml-1 btn btn-dark rounded">Buscar</button>
+    </form>
+    <div class="buttons_header_search">
+      <a class="btn btn-primary mb-3 ml-3 addproduct" href="{% url 'product:addproduct' %}"><i class="fas fa-plus-circle fa-lg"></i> Agregar Producto</a>
+    </div>
+</div>
+<div class="container mb-5 ">
+    {% for product in products %}
+
+    <div class="card mr-3 animated bounceInLeft" style="display: inline-block;">
+        <div class="card-header font-weight-bold">
+          {{product|upper}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Special title treatment</h5>
+          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-success">Ver mas <i class="fas fa-arrow-right"></i></a>
+            <a href="{% url 'product:deleteproduct' slug=product.slug %}" class="ml-1 btn btn-danger rounded">Eliminar <i class="fas fa-trash"></i></a>
+
+          <a href="{% url 'product:updateproduct' slug=product.slug %}" class="ml-1 btn btn-warning rounded">Actualizar <i class="fas fa-trash"></i></a>
+        </div>
+      </div>
+    {% endfor %}
+</div>
+{% endblock %}
+

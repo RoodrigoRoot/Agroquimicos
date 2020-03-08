@@ -1,0 +1,67 @@
+#search_img{
+    width: 100%;
+    position: relative;
+    height: 12.5rem;
+    object-fit: cover;
+    filter:drop-shadow(2px 2px 2px gray);
+    margin-bottom: 2.5rem;
+}
+
+.search{
+    width: 100%;
+}
+
+.search_product{
+    position: absolute;   
+    display: flex;
+    top: 20%;
+    left: 25%; 
+}
+
+.search_product > input{
+    width: 80%;
+}
+
+
+@media (max-width: 576px) { 
+    .card{
+        margin: 5px;
+    }
+
+    #search_img{
+        display: none;
+    }
+
+    .search_product{
+        position: relative;
+        max-width: 75%;
+        margin-top: 0.625rem;
+        margin-bottom: 1.25rem;
+        
+    }
+
+    .buttons_header_search{
+        margin-left: 5.625rem;
+    }
+    
+    .btn{
+        margin: 0.3125rem;
+    }
+}
+
+
+@media (min-width: 768px) { 
+
+ }
+
+
+@media (min-width: 992px) { 
+
+ }
+
+
+@media (max-width: 1200px) { 
+    #logo{
+        left: 0%;
+    }
+ }

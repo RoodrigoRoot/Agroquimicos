@@ -9,8 +9,9 @@
     <div class="container_login ">
         <img src="{% static 'img/login/login-a.jpg' %}" class="back_login" alt="Responsive image"/>
         <div class="container">
-            <img id="logo" src="{% static 'img/login/logo.png'%}" />
-            <form class="form_login w-50">
+        <img class="animated flip" id="logo" src="{% static 'img/login/logo.png'%}" />
+            <form class="animated bounceInDown form_login" method="POST">
+                {% csrf_token %}
                 {{forms|crispy}}
                 <input type="submit" class="btn btn-success w-100 btn-lg" value="Entrar"/>
             </form>
