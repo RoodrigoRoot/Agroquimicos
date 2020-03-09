@@ -28,7 +28,7 @@ class Product(models.Model):
     name = models.CharField(("Producto"), max_length=100, blank=False, null=False)
     description = models.TextField(("Descripción"), blank=True, null=True)
     category = models.ForeignKey(Category, verbose_name=("Categoria"), on_delete=models.CASCADE)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     user = models.ForeignKey(User, verbose_name=("Usuario"), on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, auto_now=False)
     modified_at = models.DateTimeField(auto_now_add=False, auto_now=True)

@@ -16,7 +16,7 @@
       <a class="btn btn-primary mb-3 ml-3 addproduct" href="{% url 'product:addproduct' %}"><i class="fas fa-plus-circle fa-lg"></i> Agregar Producto</a>
     </div>
 </div>
-<div class="container mb-5 ">
+<div class="container_fluid mb-5 ">
     {% for product in products %}
 
     <div class="card mr-3 animated bounceInLeft" style="display: inline-block;">
@@ -24,8 +24,8 @@
           {{product|upper}}
         </div>
         <div class="card-body">
-          <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+          <h5 class="card-title">Producto en: {{product.category}}</h5>
+          <p class="card-text">{{product.description|truncatewords:4}}</p>
             <a href="#" class="btn btn-success">Ver mas <i class="fas fa-arrow-right"></i></a>
             <a href="{% url 'product:deleteproduct' slug=product.slug %}" class="ml-1 btn btn-danger rounded">Eliminar <i class="fas fa-trash"></i></a>
 

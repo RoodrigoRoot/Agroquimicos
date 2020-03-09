@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/register/register.css' %}"/>
+{% endblock %}
+{% block title %}Registro{%endblock%}
+{% block content %}
+<div class="register_user">
+<div class="w-50" >
+
+</div>
+    
+<div class="container form_register_user w-50">
+    <h2>Registro de persona</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{forms|crispy}}
+    <input type="submit" class="btn btn-success w-100" value="Registar" />
+
+    </form>
+
+</div>
+</div>
+{%endblock%}

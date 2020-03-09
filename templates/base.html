@@ -10,7 +10,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-
 {% block css%} 
 
 {% endblock %}    
@@ -42,8 +41,20 @@
                 <a class="nav-link" href="{% url 'product:productview'%}" >
                   Productos
                 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'product:productview'%}" >
+                  Almacen
+                </a>
+              </li>
+              {% if request.user.is_staff %}    
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'product:productview'%}" >
+                  Usuarios
+                </a>
 
               </li>
+              {% endif %}
         </ul>
     </div>
     <div class="mx-auto order-0">

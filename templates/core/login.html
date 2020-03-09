@@ -13,8 +13,10 @@
             <form class="animated bounceInDown form_login" method="POST">
                 {% csrf_token %}
                 {{forms|crispy}}
-                <input type="submit" class="btn btn-success w-100 btn-lg" value="Entrar"/>
+                <input type="submit" class="btn btn-success w-100 btn-lg mb-2" value="Entrar"/>
+                <p>¿No tienes cuenta? <a href="{% url 'register' %}">Registrar nuevo usuario</a></p>
             </form>
+            
         </div>
     </div>
 {% endblock %}

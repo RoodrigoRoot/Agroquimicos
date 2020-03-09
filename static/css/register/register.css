@@ -1,0 +1,16 @@
+.register_user{
+    display: flex;
+    
+}
+
+.img_register_user{
+    height: 100%;
+    width: 200%;
+    object-fit: cover;
+}
+
+.form_register_user{
+    position: relative;
+    left: -20%;
+    padding: 20px;
+}

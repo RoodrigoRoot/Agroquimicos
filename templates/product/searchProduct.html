@@ -1,5 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %} Busqueda de Productos {% endblock%}
+{% block css%}
+<link rel="styleeshet" href="{% static 'css/product/searchproduct.css'%}"/>
+{%endblock%}
 {% block content %}
-<h2>Busqueda</h2>
+<h2>Busqueda de Productos</h2>
+
+    <form class="search_product d-flex p-3 align-middle" action="{% url 'product:searchproduct'%}" method="GET">
+      <h5 class="mt-1">¿Volvemos a buscar? &nbsp;</h5>
+      <input value="{{query}}" name="q" type="search" size="180" class="form-control w-50 border border-dark" placeholder="Busqueda de productos">
+      <button type="submit" class="ml-1 btn btn-dark rounded">Buscar</button>
+    
+  </form>
+<div class="container_fluid mb-5 ">
+  <p><strong>¿No existe el Producto?</strong><a href="{% url 'product:addproduct' %}"> Aquí puedes agregarlo</a></p>
+  {% if products%}
+    {% for product in products %}
+
+    <div class="card mr-3 animated bounceInLeft" style="display: inline-block;">
+        <div class="card-header font-weight-bold">
+          {{product|upper}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Producto en: {{product.category}}</h5>
+          <p class="card-text">{{product.description|truncatewords:4}}</p>
+            <a href="#" class="btn btn-success">Ver mas <i class="fas fa-arrow-right"></i></a>
+            <a href="{% url 'product:deleteproduct' slug=product.slug %}" class="ml-1 btn btn-danger rounded">Eliminar <i class="fas fa-trash"></i></a>
+
+          <a href="{% url 'product:updateproduct' slug=product.slug %}" class="ml-1 btn btn-warning rounded">Actualizar <i class="fas fa-trash"></i></a>
+        </div>
+      </div>
+    {% endfor %}
+    {% else %}
+    <center>
+    <h4>El producto que buscas no existe :(</h4>
+    <h5>Pero puedes agregarlo <a href="{% url 'product:addproduct'%}">Aquí</a></h5>
+  </center>
+  {% endif %}
 {% endblock %}

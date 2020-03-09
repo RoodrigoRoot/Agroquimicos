@@ -1,7 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %} Eliminar de Productos {% endblock%}
 {% block content %}
-<h2>Eliminar</h2>
-<h3>{{request.user}}</h3>
-<h4>Estas seguro de que quieres eliminar el producto <strong>{{name|upper}}</strong></h4>
+<h2 class="text-center">Eliminar Producto</h2>
+<div class="container">
+    <h3><strong>{{request.user}}</strong></h3>
+<h4>¿Estas seguro de que quieres eliminar el producto <strong>{{name|upper}}</strong>?</h4>
+<h5>Esto eliminará por completo todos los registros del producto</h5>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="submit" value="Confirmar" class="btn btn-success"/>
+        <a class="btn btn-danger" href="{% url 'product:productview' %}">Cancelar</a>
+    </form>
+    
+</div>
 {% endblock %}
